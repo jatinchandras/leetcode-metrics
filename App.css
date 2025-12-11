@@ -67,7 +67,8 @@ h1{
     font-size: 1.5rem;
     border: antiquewhite solid 2px;
     font-size: 1rem;
-    background: conic-gradient(#7ba9a9 var(--progress-degree, 0%), #2c3a3a 0%);
+    background: conic-gradient(#7ba9a9 calc(var(--progress-degree) * 1deg), #2c3a3a 0deg);
+    flex-direction: column;
 }
 .circle span{
     position: relative;
@@ -80,4 +81,64 @@ h1{
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 10px;
+}
+
+.innerCircle {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;       /* smaller than outer circle */
+    height: 50%;      /* smaller than outer circle */
+    border-radius: 50%; /* optional */
+    background-color: transparent;
+    color: white;
+    font-size: 1rem;  /* reduce if it overflows */
+    z-index: 2;
+    line-height: 1.2rem;
+    padding: 5px;     /* optional for spacing */
+    word-break: break-word; /* ensures long text wraps */
+}
+.inner2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    width: 50%;
+    height: 50%;
+    border-radius: 50% ;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+    
+
+.donut{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.outerCircle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: relative;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;   /* Needed for inner text later */
+    mask: radial-gradient(circle at center, 
+        transparent 0 50%,   /* inner hole size */
+        black 41% 100%        /* visible ring */
+    );
+    background: conic-gradient(
+        #993c3c 90deg,
+        #ddd 360deg
+    );
 }
